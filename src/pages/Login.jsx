@@ -2,13 +2,18 @@ import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
+import loginImg from '../assets/login.svg'
 
-const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider();
 const Login = () => {
     const { signIn, loginWithGoogle } = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState();
+    const [showPassword, setShowPassword] = useState(false);
+
+
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -22,10 +27,7 @@ const Login = () => {
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // alert(errorMessage, errorCode);
-                setError(errorCode);
+                setError(error.code || 'Login failed');
             })
     };
 
@@ -37,16 +39,17 @@ const Login = () => {
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // alert(errorMessage, errorCode);
-                setError(errorCode);
+                setError(error.code || 'Google login failed');
             })
     }
 
     return (
-        <div className='flex justify-center min-h-[80vh] items-center'>
-            <div className="card bg-white w-full max-w-md shrink-0 shadow-2xl">
+        <div className='sm:flex justify-center min-h-[80vh] items-center my-4'>
+            <div>
+                <img src={loginImg} alt="" />
+            </div>
+
+            <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
                 <h2 className='font-semibold text-2xl py-5 text-center'>Login your account</h2>
                 <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">
@@ -58,17 +61,24 @@ const Login = () => {
                         <input type="password" name='password' required className="input w-full" placeholder="Enter your password" /> */}
 
                         <label className="label">Password</label>
-                        <label className="input validator w-full">
+                        <div className="relative validator">
                             <input
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 required
                                 name='password'
+                                className="input w-full pr-10"
                                 placeholder="Enter your password"
-                                minLength="8"
+                                minLength="6"
                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                                title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+                                title="Must be more than 6 characters, including number, lowercase letter, uppercase letter"
                             />
-                        </label>
+                            <span
+                                className="absolute right-3 top-3 cursor-pointer text-gray-500"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+                            </span>
+                        </div>
                         <p className="validator-hint hidden">
                             Must be more than 6 characters, including
                             <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter

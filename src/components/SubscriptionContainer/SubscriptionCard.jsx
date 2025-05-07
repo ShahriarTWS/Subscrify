@@ -3,13 +3,13 @@ import { Link } from 'react-router';
 
 const SubscriptionCard = ({ singleItem }) => {
     // console.log(singleItem);
-    const { name, thumbnail,tech_category,price,frequency,id } = singleItem;
+    const { name, thumbnail, tech_category, price, frequency, id } = singleItem;
     return (
-        <div>
+        <div  data-aos="fade-up">
             <div className="card bg-base-100 shadow-sm h-full">
                 <figure>
                     <img
-                    className='h-52 md:h-64 lg:h-80 w-full'
+                        className='h-52 md:h-64 lg:h-80 w-full'
                         src={thumbnail}
                         alt="Shoes" />
                 </figure>

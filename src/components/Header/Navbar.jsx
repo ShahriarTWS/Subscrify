@@ -5,6 +5,8 @@ import tempProfileImage from '../../assets/user.png'
 
 export const links = <>
     <li className='text-base'><NavLink to={'/'}>Home</NavLink></li>
+    <li className='text-base'><NavLink to={'/about'}>About</NavLink></li>
+    <li className='text-base'><NavLink to={'/contact-us'}>Contact us</NavLink></li>
 
 </>
 
