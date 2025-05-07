@@ -6,12 +6,15 @@ import Register from "../pages/Register";
 import SubscriptionContainer from "../components/SubscriptionContainer/SubscriptionContainer";
 import SubscriptionDetails from "../pages/SubscriptionDetails";
 import PrivateRoute from "../provider/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
+import Loading from "../pages/Loading";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <HomeLayout></HomeLayout>,
         loader: () => fetch('/item.json'),
+        hydrateFallbackElement: <Loading></Loading>,
         children: [
             {
                 path: '/',
@@ -40,9 +43,10 @@ export const router = createBrowserRouter([
             <SubscriptionDetails></SubscriptionDetails>
         </PrivateRoute>,
         loader: () => fetch('/item.json'),
+        hydrateFallbackElement: <Loading></Loading>
     },
     {
         path: '/*',
-        element: <h2>Error</h2>
+        element: <ErrorPage></ErrorPage>
     },
 ])

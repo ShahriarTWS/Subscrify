@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { links } from '../Header/Navbar';
+import { AuthContext } from '../../provider/AuthProvider';
+import { NavLink } from 'react-router';
 
 const Footer = () => {
+    const {user}=use(AuthContext);
     return (
         <div>
             <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
@@ -9,6 +12,11 @@ const Footer = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 flex gap-4">
                             {links}
+                            {
+                                user ?
+                                    <li className='text-base'><NavLink to={'/auth/profile'}>Profile</NavLink></li>
+                                    : <li className='text-base'><NavLink to={'/auth/register'}>Register</NavLink></li>
+                            }
                         </ul>
                     </div>
                 </nav>
@@ -49,7 +57,7 @@ const Footer = () => {
                         </a>
                     </div>
                     <div>
-                        
+
                     </div>
                 </nav>
                 <aside>
