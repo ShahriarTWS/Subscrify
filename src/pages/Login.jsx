@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
+    const { signIn } = use(AuthContext);
+    const [error, setError] = useState();
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // alert(errorMessage, errorCode);
+                setError(errorCode);
+            })
+    };
+
     return (
         <div className='flex justify-center min-h-[80vh] items-center'>
             <div className="card bg-white w-full max-w-md shrink-0 shadow-2xl">
                 <h2 className='font-semibold text-2xl py-5 text-center'>Login your account</h2>
-                <form className="card-body">
+                <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">
 
                         <label className="label">Email address</label>
@@ -20,8 +43,9 @@ const Login = () => {
                             <input
                                 type="password"
                                 required
+                                name='password'
                                 placeholder="Enter your password"
-                                minlength="8"
+                                minLength="8"
                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                 title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                             />
