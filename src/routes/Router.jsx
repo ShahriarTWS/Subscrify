@@ -8,6 +8,7 @@ import SubscriptionDetails from "../pages/SubscriptionDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import Loading from "../pages/Loading";
+import Profile from "../pages/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: '/auth/register',
                 element: <Register></Register>,
+            },
+            {
+                path: '/auth/profile',
+                element: <Profile></Profile>,
             },
         ]
     },

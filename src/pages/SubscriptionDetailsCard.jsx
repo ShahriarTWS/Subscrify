@@ -4,24 +4,22 @@ import { AuthContext } from "../provider/AuthProvider";
 const SubscriptionDetailsCard = ({ item }) => {
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
-    const [reviewerName, setReviewerName] = useState(""); // New state for reviewer name
     const [reviews, setReviews] = useState(item.reviews || []);
-    const {user}=use(AuthContext);
+    const { user } = use(AuthContext);
     console.log(user);
 
     const handleReviewSubmit = () => {
-        if (!review || rating === 0 || !reviewerName) {
-            alert("Please enter a name, a review, and select a rating.");
+        if (!review || rating === 0 || !user?.displayName) {
+            alert("Please write a review, select a rating, and ensure you're logged in.");
             return;
         }
 
-        // Adding the new review to the reviews list
         const newReview = {
-            id: reviews.length + 1, 
-            name: {reviewerName},
+            id: reviews.length + 1,
+            name: user.displayName, 
             rating,
             comment: review,
-            date: new Date().toISOString().split('T')[0], // Current date
+            date: new Date().toISOString().split('T')[0],
         };
 
         setReviews([newReview, ...reviews]);
@@ -29,8 +27,8 @@ const SubscriptionDetailsCard = ({ item }) => {
         // Reset fields
         setReview("");
         setRating(0);
-        setReviewerName("");  // Reset reviewer name field
     };
+
 
     if (!item) {
         return <p className="text-center text-red-500 text-lg">No subscription data found.</p>;
@@ -82,14 +80,6 @@ const SubscriptionDetailsCard = ({ item }) => {
                 <div className="pt-6 border-t mt-6">
                     <h3 className="text-xl font-semibold mb-2">Leave a Review</h3>
 
-                    {/* Reviewer Name */}
-                    <input
-                        type="text"
-                        className="input input-bordered w-full mb-4"
-                        placeholder="Your Name"
-                        value={reviewerName}
-                        onChange={(e) => setReviewerName(e.target.value)}
-                    />
 
                     <textarea
                         className="textarea textarea-bordered w-full mb-4"

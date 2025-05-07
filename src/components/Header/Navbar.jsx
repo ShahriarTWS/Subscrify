@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { Link, Links, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
+import tempProfileImage from '../../assets/user.png'
 
 export const links = <>
     <li className='text-base'><NavLink to={'/'}>Home</NavLink></li>
@@ -50,11 +51,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-4">
-                    <div className="avatar">
-                        <div className="w-12 rounded-full">
-                            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+                    <div className="relative group">
+                        <div className="avatar cursor-pointer">
+                            <div className="w-12 rounded-full">
+                               {
+                                user ? <img src={user.photoURL} alt="" />
+                                : <img src={tempProfileImage} alt="" />
+                               }
+                            </div>
+                        </div>
+                        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-6 bg-primary text-white text-sm px-3 py-1 rounded shadow transition-opacity opacity-0 group-hover:opacity-100 whitespace-nowrap z-50">
+                            {user ? user.displayName : ''}
                         </div>
                     </div>
+
+
                     {
                         user ? <button onClick={handleLogout} className='btn' >Logout</button>
                             : <Link to={'/auth/login'} className='btn' >Login</Link>

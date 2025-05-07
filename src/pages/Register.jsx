@@ -5,7 +5,7 @@ import { AuthContext } from '../provider/AuthProvider';
 const Register = () => {
 
 
-    const { createUser, setUser } = use(AuthContext);
+    const { createUser, setUser, updateUser } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = e => {
@@ -22,13 +22,13 @@ const Register = () => {
                 setUser(user);
                 navigate('/');
 
-                // updateUser({ displayName: name, photoURL: photoURL }).then(() => {
-                //     setUser({ ...user, displayName: name, photoURL: photoURL });
-                //     navigate('/');
-                // }).catch((error) => {
-                //     console.log(error);
-                //     setUser(user)
-                // });
+                updateUser({ displayName: name, photoURL: photoURL }).then(() => {
+                    setUser({ ...user, displayName: name, photoURL: photoURL });
+                    navigate('/');
+                }).catch((error) => {
+                    console.log(error);
+                    setUser(user)
+                });
             })
             .catch(error => {
                 const errorCode = error.code;
