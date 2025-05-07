@@ -4,8 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 export const links = <>
     <li className='text-base'><NavLink to={'/'}>Home</NavLink></li>
-    <li className='text-base'><NavLink to={'/profile'}>Profile</NavLink></li>
-    <li className='text-base'><NavLink to={'/auth/register'}>Register</NavLink></li>
+
 </>
 
 const Navbar = () => {
@@ -29,8 +28,13 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2 pt-5">
+                            className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-6 w-52 p-2 shadow space-y-2 pt-5">
                             {links}
+                            {
+                                user ?
+                                    <li className='text-base'><NavLink to={'/auth/profile'}>Profile</NavLink></li>
+                                    : <li className='text-base'><NavLink to={'/auth/register'}>Register</NavLink></li>
+                            }
                         </ul>
                     </div>
                     <a className=" text-xl text-white font-bold">Subscrify</a>
@@ -38,6 +42,11 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex gap-4">
                         {links}
+                        {
+                            user ?
+                                <li className='text-base'><NavLink to={'/auth/profile'}>Profile</NavLink></li>
+                                : <li className='text-base'><NavLink to={'/auth/register'}>Register</NavLink></li>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-4">

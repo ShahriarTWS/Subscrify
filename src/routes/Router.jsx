@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import SubscriptionContainer from "../components/SubscriptionContainer/SubscriptionContainer";
 import SubscriptionDetails from "../pages/SubscriptionDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +36,9 @@ export const router = createBrowserRouter([
     },
     {
         path: '/subscription-details/:id',
-        element: <SubscriptionDetails></SubscriptionDetails>,
+        element: <PrivateRoute>
+            <SubscriptionDetails></SubscriptionDetails>
+        </PrivateRoute>,
         loader: () => fetch('/item.json'),
     },
     {
