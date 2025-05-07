@@ -25,7 +25,7 @@ const Slider = () => {
         >
 
             <SwiperSlide>
-                <div className="relative w-full h-[85vh] rounded-2xl overflow-hidden">
+                <div className="relative w-full h-[40vh] md:h-[85vh] rounded-2xl overflow-hidden">
                     {/* Background Image */}
                     <div
                         className="absolute inset-0 bg-cover bg-center"
@@ -37,7 +37,7 @@ const Slider = () => {
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-7xl m-12'>Smart Home Box</h2>
+                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Smart Home Box</h2>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ const Slider = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="relative w-full h-[85vh] rounded-2xl overflow-hidden">
+                <div className="relative w-full h-[40vh] md:h-[85vh] rounded-2xl overflow-hidden">
                     {/* Background Image */}
                     <div
                         className="absolute inset-0 bg-cover bg-center"
@@ -57,7 +57,7 @@ const Slider = () => {
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-7xl m-12'>Gadget Lovers Crate</h2>
+                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Gadget Lovers Crate</h2>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@ const Slider = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="relative w-full h-[85vh] rounded-2xl overflow-hidden">
+                <div className="relative w-full h-[40vh] md:h-[85vh] rounded-2xl overflow-hidden">
                     {/* Background Image */}
                     <div
                         className="absolute inset-0 bg-cover bg-center"
@@ -77,7 +77,7 @@ const Slider = () => {
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-7xl m-12'>Cyber Security Kit</h2>
+                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Cyber Security Kit</h2>
                     </div>
                 </div>
 

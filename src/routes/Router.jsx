@@ -3,12 +3,21 @@ import HomeLayout from "../Layouts/HomeLayout";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import SubscriptionContainer from "../components/SubscriptionContainer/SubscriptionContainer";
+import SubscriptionDetails from "../pages/SubscriptionDetails";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <HomeLayout></HomeLayout>,
-        loader: ()=>fetch('item.json'),
+        loader: () => fetch('/item.json'),
+        children: [
+            {
+                path: '/',
+                element: <SubscriptionContainer></SubscriptionContainer>,
+
+            }
+        ]
     },
     {
         path: '/auth',
@@ -23,6 +32,11 @@ export const router = createBrowserRouter([
                 element: <Register></Register>,
             },
         ]
+    },
+    {
+        path: '/subscription-details/:id',
+        element: <SubscriptionDetails></SubscriptionDetails>,
+        loader: () => fetch('/item.json'),
     },
     {
         path: '/*',

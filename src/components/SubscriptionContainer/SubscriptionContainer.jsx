@@ -1,7 +1,9 @@
 import React from 'react';
 import SubscriptionCard from './SubscriptionCard';
+import { useOutletContext } from 'react-router';
 
-const SubscriptionContainer = ({ data }) => {
+const SubscriptionContainer = () => {
+    const data = useOutletContext();
     // Handle loading or missing data
     if (!Array.isArray(data)) {
         return <p className="text-center text-lg text-red-500">Loading subscriptions or data format error...</p>;
