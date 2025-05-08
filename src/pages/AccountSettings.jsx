@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import { Link } from 'react-router';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const AccountSettings = () => {
     const { user } = use(AuthContext);
@@ -16,6 +17,7 @@ const AccountSettings = () => {
 
     return (
         <div className=' items-center my-20'>
+            <ScrollToTop></ScrollToTop>
             <title>Subscrify || Account Settings</title>
             <div className="max-w-3xl mx-auto card card-body bg-gray-100">
                 <h2 className="text-3xl font-semibold mb-6">Account Overview</h2>

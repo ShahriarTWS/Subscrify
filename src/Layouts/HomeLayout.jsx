@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Slider from '../components/Slider/Slider';
-import { Outlet, useLoaderData } from 'react-router';
-import SubscriptionContainer from '../components/SubscriptionContainer/SubscriptionContainer';
+import { Outlet } from 'react-router';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import SubscriptionCard from '../components/SubscriptionContainer/SubscriptionCard';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
 import CustomerReviewSection from '../components/CustomerReviewSection/CustomerReviewSection';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const HomeLayout = () => {
 
@@ -27,8 +26,10 @@ const HomeLayout = () => {
     // const data = useLoaderData();
     // console.log(data);
     return (
+
         <div className='bg-base-100 h-screen '>
             <title>Subscrify || Home</title>
+            <ScrollToTop></ScrollToTop>
             <header>
                 <Header></Header>
                 <div className='w-11/12 mx-auto mt-5'>
@@ -53,6 +54,7 @@ const HomeLayout = () => {
                 <Footer></Footer>
             </footer>
         </div>
+
     );
 };
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import ScrollToTop from '../../ScrollToTop/ScrollToTop';
 
 const ContactUs = () => {
     return (
         <div className="w-11/12 max-w-4xl mx-auto my-10 p-6 bg-base-100 rounded-lg shadow-md">
             <title>Subscrify || Contact Us</title>
+            <ScrollToTop></ScrollToTop>
             <h1 className="text-2xl md:text-3xl font-bold text-primary mb-4">📞 Contact Us</h1>
 
             <p className="text-base-content mb-6">

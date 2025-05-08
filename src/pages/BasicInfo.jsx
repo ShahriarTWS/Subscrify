@@ -2,10 +2,12 @@ import React from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import { Outlet } from 'react-router';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const BasicInfo = () => {
     return (
         <div>
+            <ScrollToTop></ScrollToTop>
             <header>
                 <Header></Header>
             </header>

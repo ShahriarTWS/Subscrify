@@ -36,8 +36,11 @@ const Slider = () => {
                     ></div>
 
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Smart Home Box</h2>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center   text-white p-4">
+                        <div className='space-y-4'>
+                            <h2 className='text-3xl md:text-5xl lg:text-7xl mx-12'>Smart Home Solution</h2>
+                            <p className='mx-12'>Transform your home into a smart home with curated smart devices, home automation products, and IoT gadgets.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -57,7 +60,10 @@ const Slider = () => {
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Gadget Lovers Crate</h2>
+                        <div className='space-y-4'>
+                            <h2 className='text-3xl md:text-5xl lg:text-7xl mx-12'>Gadget Lovers Crate</h2>
+                            <p className='mx-12'>Surprise yourself each month with trending gadgets, tools, and accessories from the tech world.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -77,14 +83,17 @@ const Slider = () => {
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center  text-white p-4">
-                       <h2 className='text-3xl md:text-5xl lg:text-7xl m-12'>Cyber Security Kit</h2>
+                        <div className='space-y-4'>
+                            <h2 className='text-3xl md:text-5xl lg:text-7xl mx-12'>Cyber Security Kit</h2>
+                            <p className='mx-12'>Stay protected with curated tools, training content, and security devices for digital safety.</p>
+                        </div>
                     </div>
                 </div>
 
 
             </SwiperSlide>
 
-           
+
 
         </Swiper>
     );

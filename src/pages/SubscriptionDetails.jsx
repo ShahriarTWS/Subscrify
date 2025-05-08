@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from 'react-router';
 import SubscriptionDetailsCard from './SubscriptionDetailsCard';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const SubscriptionDetails = () => {
     const { id } = useParams();
@@ -16,6 +17,8 @@ const SubscriptionDetails = () => {
 
     return (
         <div>
+            <title>Subscrify || Subscription Details</title>
+            <ScrollToTop></ScrollToTop>
             <header className='pt-5'>
                 <Header></Header>
             </header>

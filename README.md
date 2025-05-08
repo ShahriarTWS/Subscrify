@@ -1,6 +1,6 @@
 # Subscrify
 
-**Live URL:** [https://subscrify-tws.web.app/] [https://subscrify-tws.netlify.app/ 
+**Live URL:** [https://subscrify-tws.web.app/] [https://subscrify-tws.netlify.app/]
 
 ## 🚀 Project Purpose
 
@@ -20,10 +20,8 @@
 ## 🧩 NPM Packages Used
 
 - [`@tailwindcss/vite`](https://www.npmjs.com/package/@tailwindcss/vite)
-- [`aos`](https://www.npmjs.com/package/aos)
 - [`firebase`](https://www.npmjs.com/package/firebase)
 - [`react`](https://www.npmjs.com/package/react)
-- [`react-countup`](https://www.npmjs.com/package/react-countup)
 - [`react-dom`](https://www.npmjs.com/package/react-dom)
 - [`react-icons`](https://www.npmjs.com/package/react-icons)
 - [`react-router`](https://www.npmjs.com/package/react-router)
