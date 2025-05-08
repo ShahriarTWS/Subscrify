@@ -1,7 +1,6 @@
 # Subscrify
 
-**Live URL:** [https://subscrify-tws.web.app/](https://subscrify-tws.netlify.app/)  
-*(Replace with actual URL if different)*
+**Live URL:** [https://subscrify-tws.web.app/] [https://subscrify-tws.netlify.app/ 
 
 ## 🚀 Project Purpose
 
