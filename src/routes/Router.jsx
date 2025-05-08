@@ -14,6 +14,7 @@ import TermsAndConditions from "../components/BasicInfo/TermsAndConditions";
 import PrivacyPolicy from "../components/BasicInfo/PrivacyPolicy";
 import AboutUs from "../components/BasicInfo/AboutUs";
 import ContactUs from "../components/BasicInfo/ContactUs";
+import AccountSettings from "../pages/AccountSettings";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,7 @@ export const router = createBrowserRouter([
                 path: '/auth/profile',
                 element: <Profile></Profile>,
             },
+           
         ]
     },
     {
@@ -75,6 +77,12 @@ export const router = createBrowserRouter([
             {
                 path: '/info/contact-us',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/info/account-setting',
+                element: <PrivateRoute>
+                    <AccountSettings></AccountSettings>
+                </PrivateRoute>
             },
         ]
     },
