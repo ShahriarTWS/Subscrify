@@ -38,7 +38,7 @@ const Profile = () => {
             <div className="bg-gray-50 my-6 flex items-center justify-center min-h-[70vh]">
                 <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">My Profile</h2>
-                    <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+                    <div className="flex flex-col md:flex-col items-center  gap-12">
                         <div className="flex-shrink-0">
                             <img
                                 src={user.photoURL}
@@ -46,7 +46,7 @@ const Profile = () => {
                                 className="w-80 rounded-full object-cover border-4 border-primary"
                             />
                         </div>
-                        <div className="flex-1 space-y-3 text-center md:text-left">
+                        <div className="flex-1 space-y-3 text-center ">
                             <h3 className="text-3xl font-semibold text-gray-700">
                                 {user.displayName}
                             </h3>

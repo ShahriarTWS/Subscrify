@@ -5,17 +5,18 @@ import SubscriptionContainer from '../components/SubscriptionContainer/Subscript
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import SubscriptionCard from '../components/SubscriptionContainer/SubscriptionCard';
+import HowItWorks from '../components/HowItWorks/HowItWorks';
 
 const HomeLayout = () => {
 
-    const [data, setData] = useState([]); 
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         fetch('/item.json')
             .then(res => res.json())
             .then(fetchedData => {
                 //   console.log("Fetched Data:", fetchedData);
-                setData(fetchedData); 
+                setData(fetchedData);
             })
             .catch(err => {
                 console.error("Failed to fetch data:", err);
@@ -25,7 +26,7 @@ const HomeLayout = () => {
     // const data = useLoaderData();
     // console.log(data);
     return (
-        <div className='bg-base-100 h-screen pt-5'>
+        <div className='bg-base-100 h-screen '>
             <header>
                 <Header></Header>
                 <div className='w-11/12 mx-auto mt-5'>
@@ -34,6 +35,7 @@ const HomeLayout = () => {
             </header>
 
             <main className='w-11/12 mx-auto my-16'>
+                <HowItWorks></HowItWorks>
                 <Outlet context={data}></Outlet>
                 {/* <SubscriptionContainer data={data}></SubscriptionContainer> */}
                 {/* <div>

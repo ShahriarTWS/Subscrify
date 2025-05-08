@@ -9,6 +9,9 @@ import PrivateRoute from "../provider/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import Loading from "../pages/Loading";
 import Profile from "../pages/Profile";
+import BasicInfo from "../pages/BasicInfo";
+import TermsAndConditions from "../components/BasicInfo/TermsAndConditions";
+import PrivacyPolicy from "../components/BasicInfo/PrivacyPolicy";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +52,21 @@ export const router = createBrowserRouter([
         </PrivateRoute>,
         loader: () => fetch('/item.json'),
         hydrateFallbackElement: <Loading></Loading>
+    },
+    
+    {
+        path: '/info',
+        element: <BasicInfo></BasicInfo>,
+        children: [
+            {
+                path:'/info/terms&conditions',
+                element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: '/info/privacy-policy',
+                element: <PrivacyPolicy></PrivacyPolicy>
+            }
+        ]
     },
     {
         path: '/*',
