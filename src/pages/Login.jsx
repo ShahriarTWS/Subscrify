@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import loginImg from '../assets/login.svg'
+import Swal from 'sweetalert2';
 
 export const provider = new GoogleAuthProvider();
 const Login = () => {
@@ -18,38 +19,63 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
-
+    
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(`${location.state ? location.state : '/'}`)
+                Swal.fire({
+                    title: 'Login Successful!',
+                    text: `Welcome back, ${user.displayName || 'User'}!`,
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                });
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
                 setError(error.code || 'Login failed');
-            })
+                Swal.fire({
+                    title: 'Login Failed',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                });
+            });
     };
-
+    
     const handleGoogleLogin = () => {
         loginWithGoogle(provider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(`${location.state ? location.state : '/'}`)
+                Swal.fire({
+                    title: 'Google Login Successful!',
+                    text: `Welcome, ${user.displayName || 'User'}!`,
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                });
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
                 setError(error.code || 'Google login failed');
-            })
-    }
+                Swal.fire({
+                    title: 'Google Login Failed',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                });
+            });
+    };
+    
+
 
     return (
         <div className='sm:flex justify-center min-h-[80vh] items-center my-4'>
             <div>
-                <img src={loginImg} alt="" />
+                <img className='w-3/4 mx-auto' src={loginImg} alt="" />
             </div>
 
-            <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
+            <div className="card bg-white w-full max-w-md shrink-0 shadow-2xl">
                 <h2 className='font-semibold text-2xl py-5 text-center'>Login your account</h2>
                 <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">

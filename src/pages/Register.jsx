@@ -4,12 +4,13 @@ import { AuthContext } from '../provider/AuthProvider';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { provider } from './Login';
 import signupImg from '../assets/signup.svg'
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
-    const { createUser, setUser, updateUser,loginWithGoogle,error,setError } = use(AuthContext);
+    const { createUser, setUser, updateUser, loginWithGoogle, error, setError } = use(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = e => {
@@ -18,42 +19,68 @@ const Register = () => {
         const photoURL = e.target.photoURL.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({ name, photoURL, email, password });
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                // console.log(user);
                 setUser(user);
-                navigate('/');
 
-                updateUser({ displayName: name, photoURL: photoURL }).then(() => {
-                    setUser({ ...user, displayName: name, photoURL: photoURL });
-                    navigate('/');
-                }).catch((error) => {
-                    console.log(error);
-                    setUser(user)
-                });
+                updateUser({ displayName: name, photoURL: photoURL })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photoURL });
+                        Swal.fire({
+                            title: 'Registration Successful!',
+                            text: `Welcome, ${name}!`,
+                            icon: 'success',
+                            confirmButtonColor: '#3085d6',
+                        });
+                        navigate('/');
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setUser(user);
+                        navigate('/');
+                    });
             })
             .catch(error => {
-                setError(error.code || 'Google login failed');
-            })
+                setError(error.message || 'Registration failed');
+                Swal.fire({
+                    title: 'Registration Failed',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                });
+            });
     };
+
 
     const handleGoogleLogin = () => {
         loginWithGoogle(provider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                navigate(`${location.state ? location.state : '/'}`)
+                Swal.fire({
+                    title: 'Google Login Successful!',
+                    text: `Welcome, ${user.displayName || 'User'}!`,
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                });
+                navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
                 setError(error.code || 'Google login failed');
-            })
-    }
+                Swal.fire({
+                    title: 'Google Login Failed',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                });
+            });
+    };
+
 
     return (
         <div className='flex flex-col-reverse md:flex-row justify-center min-h-[80vh] items-center gap-6 my-4'>
-            <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl">
+            <div className="card bg-white w-full max-w-md shrink-0 shadow-2xl">
                 <h2 className='font-semibold text-2xl py-5 text-center'>Register your account</h2>
                 <form onSubmit={handleRegister} className="card-body">
                     <fieldset className="fieldset">
@@ -123,8 +150,8 @@ const Register = () => {
                 </div>
                 <p className='font-medium py-3 text-center'>Already Have An Account ? <Link className='text-red-500 hover:underline' to='/auth/login'>Login</Link></p>
             </div>
-            <div>
-<img src={signupImg} alt="" />
+            <div className=''>
+                <img className='w-3/4 mx-auto' src={signupImg} alt="" />
             </div>
         </div>
     );

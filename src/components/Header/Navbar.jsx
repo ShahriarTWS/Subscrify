@@ -2,11 +2,12 @@ import React, { use } from 'react';
 import { Link, Links, NavLink } from 'react-router';
 import { AuthContext } from '../../provider/AuthProvider';
 import tempProfileImage from '../../assets/user.png'
+import Swal from 'sweetalert2';
 
 export const links = <>
     <li className='text-base'><NavLink to={'/'}>Home</NavLink></li>
-    <li className='text-base'><NavLink to={'/about'}>About</NavLink></li>
-    <li className='text-base'><NavLink to={'/contact-us'}>Contact us</NavLink></li>
+    <li className='text-base'><NavLink to={'/info/about-us'}>About</NavLink></li>
+    <li className='text-base'><NavLink to={'/info/contact-us'}>Contact us</NavLink></li>
 
 </>
 
@@ -14,12 +15,26 @@ const Navbar = () => {
     const { user, logOut } = use(AuthContext);
 
     const handleLogout = () => {
-        logOut().then(() => {
-            alert("Logged out")
-        }).catch(error => {
-            console.log(error);
-        });
-    }
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: 'Logged Out',
+                    text: 'You have successfully logged out.',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Logout failed. Please try again.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                });
+            });
+    };
+
 
     return (
         <div>
@@ -56,10 +71,10 @@ const Navbar = () => {
                     <div className="relative group">
                         <div className="avatar cursor-pointer">
                             <div className="w-12 rounded-full">
-                               {
-                                user ? <img src={user.photoURL} alt="" />
-                                : <img src={tempProfileImage} alt="" />
-                               }
+                                {
+                                    user ? <img src={user.photoURL} alt="" />
+                                        : <img src={tempProfileImage} alt="" />
+                                }
                             </div>
                         </div>
                         <div className="absolute left-1/2 -translate-x-1/2 top-full mt-6 bg-primary text-white text-sm px-3 py-1 rounded shadow transition-opacity opacity-0 group-hover:opacity-100 whitespace-nowrap z-50">
@@ -69,7 +84,7 @@ const Navbar = () => {
 
 
                     {
-                        user ? <button onClick={handleLogout} className='btn' >Logout</button>
+                        user ? <Link to={'/auth/login'} onClick={handleLogout} className='btn' >Logout</Link>
                             : <Link to={'/auth/login'} className='btn' >Login</Link>
                     }
                 </div>

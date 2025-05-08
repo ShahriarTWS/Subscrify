@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import SubscriptionCard from '../components/SubscriptionContainer/SubscriptionCard';
 import HowItWorks from '../components/HowItWorks/HowItWorks';
+import CustomerReviewSection from '../components/CustomerReviewSection/CustomerReviewSection';
 
 const HomeLayout = () => {
 
@@ -44,7 +45,9 @@ const HomeLayout = () => {
                 }
                 </div> */}
             </main>
-
+            <section>
+                <CustomerReviewSection></CustomerReviewSection>
+            </section>
             <footer>
                 <Footer></Footer>
             </footer>

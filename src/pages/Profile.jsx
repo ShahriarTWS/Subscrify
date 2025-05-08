@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from './Loading';
+import Swal from 'sweetalert2';
 
 const Profile = () => {
     const { user, updateUser, setUser } = useContext(AuthContext);
@@ -25,13 +26,28 @@ const Profile = () => {
             setUser({ ...user, displayName: name, photoURL });
             setMessage('Profile updated successfully!');
             setEditMode(false);
+
+            // SweetAlert Success
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Profile updated successfully!',
+            });
         } catch (error) {
             console.error(error);
             setMessage('Failed to update profile.');
+
+            // SweetAlert Error
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Failed to update profile.',
+            });
         } finally {
             setLoading(false);
         }
     };
+
 
     return (
         <div>

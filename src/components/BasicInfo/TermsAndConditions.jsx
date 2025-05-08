@@ -3,7 +3,7 @@ import { FaRegFileAlt } from 'react-icons/fa';
 
 const TermsAndConditions = () => {
     return (
-        <div className="w-11/12 mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-base-100 rounded-lg shadow-md my-6">
+        <div className="w-11/12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-base-100 rounded-lg shadow-md my-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 mb-6">
                 <FaRegFileAlt className="text-primary text-3xl" />
                 <h1 className="text-xl sm:text-2xl font-bold text-primary">

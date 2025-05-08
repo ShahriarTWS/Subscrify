@@ -12,6 +12,8 @@ import Profile from "../pages/Profile";
 import BasicInfo from "../pages/BasicInfo";
 import TermsAndConditions from "../components/BasicInfo/TermsAndConditions";
 import PrivacyPolicy from "../components/BasicInfo/PrivacyPolicy";
+import AboutUs from "../components/BasicInfo/AboutUs";
+import ContactUs from "../components/BasicInfo/ContactUs";
 
 export const router = createBrowserRouter([
     {
@@ -53,19 +55,27 @@ export const router = createBrowserRouter([
         loader: () => fetch('/item.json'),
         hydrateFallbackElement: <Loading></Loading>
     },
-    
+
     {
         path: '/info',
         element: <BasicInfo></BasicInfo>,
         children: [
             {
-                path:'/info/terms&conditions',
+                path: '/info/terms&conditions',
                 element: <TermsAndConditions></TermsAndConditions>
             },
             {
                 path: '/info/privacy-policy',
                 element: <PrivacyPolicy></PrivacyPolicy>
-            }
+            },
+            {
+                path: '/info/about-us',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: '/info/contact-us',
+                element: <ContactUs></ContactUs>
+            },
         ]
     },
     {

@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { links } from '../Header/Navbar';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link, NavLink } from 'react-router';
+import ContactUs from '../BasicInfo/ContactUs';
 
 const Footer = () => {
     const { user } = use(AuthContext);
@@ -80,6 +81,7 @@ const Footer = () => {
                 <aside>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
                 </aside>
+
             </footer>
         </div>
     );
