@@ -6,7 +6,7 @@ const SubscriptionCard = ({ singleItem }) => {
     const { name, thumbnail, tech_category, price, frequency, id } = singleItem;
     return (
         <div  data-aos="fade-up">
-            <div className="card bg-base-100 shadow-sm h-full">
+            <div className="card bg-base-100 h-full shadow hover:shadow-2xl">
                 <figure>
                     <img
                         className='h-52 md:h-64 lg:h-80 w-full'

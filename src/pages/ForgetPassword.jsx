@@ -1,11 +1,13 @@
-import React, { use, useState } from 'react';
+import React, { use, useContext, useState } from 'react';
+import { useLocation } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const ForgetPassword = () => {
-
-    const { user,resetPassword,inputEmail } = use(AuthContext);
-    const [email, setEmail] = useState(user?.email || ''); // Default to user.email
+    const { resetPassword } = use(AuthContext);
+    const location = useLocation();
+    const passedEmail = location.state?.email || '';
+    const [email, setEmail] = useState(passedEmail);
 
     const handleReset = async (e) => {
         e.preventDefault();
@@ -15,13 +17,13 @@ const ForgetPassword = () => {
         }
 
         try {
-            await resetPassword( email);
+            await resetPassword(email);
             Swal.fire({
                 icon: 'success',
                 title: 'Reset email sent!',
                 text: 'Check your inbox to reset your password.',
                 timer: 2000,
-                showConfirmButton: false
+                showConfirmButton: false,
             });
             setTimeout(() => {
                 window.open('https://mail.google.com', '_blank');
@@ -30,30 +32,30 @@ const ForgetPassword = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Failed to send reset email',
-                text: error.message
+                text: error.message,
             });
         }
     };
 
     return (
         <div className="flex items-center justify-center h-[60vh]">
-        <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-            <h2 className="text-2xl font-semibold mb-4 text-center">Forgot Password</h2>
-            <form onSubmit={handleReset} className="space-y-4">
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={inputEmail}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="input input-bordered w-full"
-                    required
-                />
-                <button type="submit" className="btn btn-primary w-full">
-                    Send Reset Link
-                </button>
-            </form>
+            <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+                <h2 className="text-2xl font-semibold mb-4 text-center">Forgot Password</h2>
+                <form onSubmit={handleReset} className="space-y-4">
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="input input-bordered w-full"
+                        required
+                    />
+                    <button type="submit" className="btn btn-primary w-full">
+                        Send Reset Link
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
     );
 };
 

@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 export const provider = new GoogleAuthProvider();
 const Login = () => {
-    const { signIn, loginWithGoogle, setInputEmail,user } = use(AuthContext);
+    const { signIn, loginWithGoogle, setInputEmail, inputEmail  } = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState();
@@ -121,7 +121,7 @@ const Login = () => {
                             <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
                         </p>
 
-                        <Link to={'/auth/forget-password'}><p className="link link-hover">Forgot password?</p></Link>
+                        <Link to={'/auth/forget-password'} state={{ email: inputEmail }}><p className="link link-hover">Forgot password?</p></Link>
                         {
                             // error && <p className='text-red-500'>{error}</p>
                         }
