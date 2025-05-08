@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from './Loading';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const Profile = () => {
     const { user, updateUser, setUser } = useContext(AuthContext);
@@ -51,6 +52,7 @@ const Profile = () => {
 
     return (
         <div>
+            <title>Subscrify || Profile</title>
             <div className="bg-gray-50 my-6 flex items-center justify-center min-h-[70vh]">
                 <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-4xl">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">My Profile</h2>

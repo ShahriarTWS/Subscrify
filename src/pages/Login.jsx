@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 export const provider = new GoogleAuthProvider();
 const Login = () => {
-    const { signIn, loginWithGoogle } = use(AuthContext);
+    const { signIn, loginWithGoogle, setInputEmail,user } = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const [error, setError] = useState();
@@ -19,11 +19,11 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-    
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 Swal.fire({
                     title: 'Login Successful!',
                     text: `Welcome back, ${user.displayName || 'User'}!`,
@@ -42,12 +42,12 @@ const Login = () => {
                 });
             });
     };
-    
+
     const handleGoogleLogin = () => {
         loginWithGoogle(provider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 Swal.fire({
                     title: 'Google Login Successful!',
                     text: `Welcome, ${user.displayName || 'User'}!`,
@@ -66,11 +66,12 @@ const Login = () => {
                 });
             });
     };
-    
+
 
 
     return (
         <div className='sm:flex justify-center min-h-[80vh] items-center my-4'>
+            <title>Subscrify || Login</title>
             <div>
                 <img className='w-3/4 mx-auto' src={loginImg} alt="" />
             </div>
@@ -81,7 +82,17 @@ const Login = () => {
                     <fieldset className="fieldset">
 
                         <label className="label">Email address</label>
-                        <input type="email" name='email' required className="input w-full" placeholder="Enter your email address" />
+                        <input
+                            type="email"
+                            name="email"
+                            // value={email} // if you're using useState for local email, bind it here
+                            onChange={(e) => {
+                                setInputEmail(e.target.value);
+                            }}
+                            required
+                            className="input w-full"
+                            placeholder="Enter your email address"
+                        />
 
                         {/* <label className="label">Password</label>
                         <input type="password" name='password' required className="input w-full" placeholder="Enter your password" /> */}
@@ -110,7 +121,7 @@ const Login = () => {
                             <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
                         </p>
 
-                        <div><a className="link link-hover">Forgot password?</a></div>
+                        <Link to={'/auth/forget-password'}><p className="link link-hover">Forgot password?</p></Link>
                         {
                             // error && <p className='text-red-500'>{error}</p>
                         }

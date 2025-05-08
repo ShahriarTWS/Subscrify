@@ -8,7 +8,7 @@ export const links = <>
     <li className='text-base'><NavLink to={'/'}>Home</NavLink></li>
     <li className='text-base'><NavLink to={'/info/about-us'}>About</NavLink></li>
     <li className='text-base'><NavLink to={'/info/contact-us'}>Contact us</NavLink></li>
-    <li className='text-base'><NavLink to={'/info/account-setting'}>Account Setting</NavLink></li>
+    <li className='text-base'><NavLink to={'/auth/account-setting'}>Account Setting</NavLink></li>
 
 </>
 
@@ -26,7 +26,7 @@ const Navbar = () => {
                 });
             })
             .catch(error => {
-                console.error(error);
+                // console.error(error);
                 Swal.fire({
                     title: 'Error',
                     text: 'Logout failed. Please try again.',

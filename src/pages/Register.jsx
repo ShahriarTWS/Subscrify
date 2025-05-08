@@ -80,6 +80,7 @@ const Register = () => {
 
     return (
         <div className='flex flex-col-reverse md:flex-row justify-center min-h-[80vh] items-center gap-6 my-4'>
+            <title>Subscrify || Register</title>
             <div className="card bg-white w-full max-w-md shrink-0 shadow-2xl">
                 <h2 className='font-semibold text-2xl py-5 text-center'>Register your account</h2>
                 <form onSubmit={handleRegister} className="card-body">

@@ -6,7 +6,7 @@ const SubscriptionDetailsCard = ({ item }) => {
     const [rating, setRating] = useState(0);
     const [reviews, setReviews] = useState(item.reviews || []);
     const { user } = use(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const handleReviewSubmit = () => {
         if (!review || rating === 0 || !user?.displayName) {

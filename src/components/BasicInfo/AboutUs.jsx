@@ -4,6 +4,7 @@ import { FaUsers } from 'react-icons/fa';
 const AboutUs = () => {
     return (
         <div className="w-11/12 max-w-4xl mx-auto my-10 p-6 bg-base-100 rounded-lg shadow-md">
+            <title>Subscrify || About</title>
             <div className="flex items-center gap-3 mb-4">
                 <FaUsers className="text-2xl text-primary" />
                 <h1 className="text-2xl md:text-3xl font-bold text-primary">About Us – Subscrify</h1>

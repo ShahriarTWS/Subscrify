@@ -28,6 +28,7 @@ const HomeLayout = () => {
     // console.log(data);
     return (
         <div className='bg-base-100 h-screen '>
+            <title>Subscrify || Home</title>
             <header>
                 <Header></Header>
                 <div className='w-11/12 mx-auto mt-5'>

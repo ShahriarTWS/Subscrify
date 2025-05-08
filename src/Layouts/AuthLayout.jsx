@@ -1,10 +1,11 @@
-import React from 'react';
-import Navbar from '../components/Header/Navbar';
+import React, { use } from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 const AuthLayout = () => {
+
+
     return (
         <div className=' bg-base-100'>
             

@@ -15,6 +15,7 @@ import PrivacyPolicy from "../components/BasicInfo/PrivacyPolicy";
 import AboutUs from "../components/BasicInfo/AboutUs";
 import ContactUs from "../components/BasicInfo/ContactUs";
 import AccountSettings from "../pages/AccountSettings";
+import ForgetPassword from "../pages/ForgetPassword";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,16 @@ export const router = createBrowserRouter([
             {
                 path: '/auth/profile',
                 element: <Profile></Profile>,
+            },
+            {
+                path: '/auth/forget-password',
+                element: <ForgetPassword></ForgetPassword>,
+            },
+            {
+                path: '/auth/account-setting',
+                element: <PrivateRoute>
+                    <AccountSettings></AccountSettings>
+                </PrivateRoute>
             },
            
         ]
@@ -78,12 +89,12 @@ export const router = createBrowserRouter([
                 path: '/info/contact-us',
                 element: <ContactUs></ContactUs>
             },
-            {
-                path: '/info/account-setting',
-                element: <PrivateRoute>
-                    <AccountSettings></AccountSettings>
-                </PrivateRoute>
-            },
+            // {
+            //     path: '/info/account-setting',
+            //     element: <PrivateRoute>
+            //         <AccountSettings></AccountSettings>
+            //     </PrivateRoute>
+            // },
         ]
     },
     {
