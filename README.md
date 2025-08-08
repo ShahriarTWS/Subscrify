@@ -1,34 +1,91 @@
-# Subscrify
+# 📦 Subscrify
 
-**Live URL:** [https://subscrify-tws.web.app/] [https://subscrify-tws.netlify.app/]
-
-## 🚀 Project Purpose
-
-**Subscrify** is a tech-focused subscription box platform that curates and delivers high-quality products in categories like AI, smart home, web development, and more. Users can register, log in, manage their profile, and browse or purchase subscription boxes tailored to their interests.
-
-## 🔑 Key Features
-
-- 🔐 **Firebase Authentication**: Register, login, Google sign-in, password reset, and protected routes.
-- 👤 **Profile Management**: Update display name and photo, view account metadata.
-- 📦 **Curated Boxes**: Display subscription boxes by category with dynamic content.
-- 📧 **Reset Password via Email**: Includes a dedicated forget password page with email redirection.
-- 💬 **SweetAlert2 Feedback**: Stylish alerts for authentication, actions, and form responses.
-- 📱 **Responsive Design**: Fully responsive UI built with TailwindCSS and AOS animations.
-- 🚀 **Private Routes**: Some routes are protected to ensure only logged-in users can access them.
-- 🌐 **Google Redirects**: For password resets and email interactions.
-
-## 🧩 NPM Packages Used
-
-- [`@tailwindcss/vite`](https://www.npmjs.com/package/@tailwindcss/vite)
-- [`firebase`](https://www.npmjs.com/package/firebase)
-- [`react`](https://www.npmjs.com/package/react)
-- [`react-dom`](https://www.npmjs.com/package/react-dom)
-- [`react-icons`](https://www.npmjs.com/package/react-icons)
-- [`react-router`](https://www.npmjs.com/package/react-router)
-- [`sweetalert2`](https://www.npmjs.com/package/sweetalert2)
-- [`swiper`](https://www.npmjs.com/package/swiper)
-- [`tailwindcss`](https://www.npmjs.com/package/tailwindcss)
+**Live URLs:**  
+🔗 [subscrify-tws.web.app](https://subscrify-tws.web.app/)  
+🔗 [subscrify-tws.netlify.app](https://subscrify-tws.netlify.app/)
 
 ---
 
-> 💡 Built with love by Shahriar Nazim Joy.
+## 🚀 Project Overview
+
+**Subscrify** is a tech-oriented subscription box platform that curates and delivers premium boxes in various categories such as AI, Smart Home, Web Development, and more. Users can easily register, manage profiles, and explore a wide range of tailored tech subscription plans.
+
+---
+
+## 🖼️ Screenshot
+
+![FreelancerPoint Screenshot](https://res.cloudinary.com/dwgj5fypm/image/upload/v1754649995/Screenshot_2025-08-08_164621_jnpkhc.png)
+
+---
+
+## 🎯 Core Features
+
+- 🔐 **User Authentication**
+  - Register, login, logout
+  - Google sign-in integration
+  - Password reset via email
+  - Firebase protected routes
+
+- 👤 **Profile Management**
+  - Update display name and profile photo
+  - View user account metadata
+
+- 📦 **Dynamic Subscription Boxes**
+  - Explore curated tech boxes by category
+  - Interactive product previews
+
+- 💬 **User Feedback**
+  - SweetAlert2 for stylish alerts and confirmations
+
+- 📧 **Password Recovery**
+  - Forget password page with email-based reset
+
+- 📱 **Responsive UI**
+  - Fully mobile-friendly layout
+  - Tailwind CSS + AOS animations
+
+- 🔐 **Private Routing**
+  - Role-based access for secured pages
+
+---
+
+## 🧩 Tech Stack & Packages
+
+- ⚛️ **React**
+- 🔥 **Firebase (Auth & Hosting)**
+- 🎨 **Tailwind CSS**
+- 📦 **SweetAlert2**
+- 🔁 **React Router DOM**
+- 🌐 **Swiper** (for carousel display)
+- 🎯 **React Icons**
+- 🧪 **Vite**
+
+### 👉 NPM Packages
+
+```bash
+@tailwindcss/vite
+firebase
+react
+react-dom
+react-icons
+react-router
+sweetalert2
+swiper
+tailwindcss
+```
+
+
+## 📌 Future Improvements
+- Admin dashboard for box management
+
+- Payment gateway integration
+
+- User subscription history
+
+- Dark mode toggle
+
+## 🛠️ Developer Notes
+This project was built as part of a learning journey in mastering frontend development with React and Firebase. I'm currently in the learning phase and open to feedback and improvements.
+
+>## 👨‍💻 Author
+> **Shahriar Nazim Joy**
